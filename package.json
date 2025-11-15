@@ -24,9 +24,9 @@
   },
   "scripts": {
     "build": "tsc",
+    "version:increment": "npm version patch",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,yaml}\"",
-    "prepublishOnly": "npm run build",
-    "publish": "npm publish --access public"
+    "prepublishOnly": "npm run build && npm run version:increment"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",
