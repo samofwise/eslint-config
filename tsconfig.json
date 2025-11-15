@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./",
+    "rootDir": "./src",
     "declaration": true,
     "declarationMap": true,
     "noEmit": false,
@@ -12,6 +12,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["index.ts", "eslint.config.ts", "types.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "build"]
 }

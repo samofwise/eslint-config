@@ -12,12 +12,16 @@
       "types": "./dist/.prettierrc.base.d.ts",
       "default": "./dist/.prettierrc.base.js"
     },
+    "./prettier.config": {
+      "types": "./dist/.prettierrc.base.d.ts",
+      "default": "./dist/.prettierrc.base.js"
+    },
     "./tsconfig.base.json": "./tsconfig.base.json"
   },
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    ".prettierrc.base.ts",
+    "src/.prettierrc.base.ts",
     "tsconfig.base.json",
     "README.md"
   ],
@@ -37,8 +41,9 @@
   "scripts": {
     "build": "tsc",
     "version:increment": "npm version patch",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,yaml}\"",
-    "prepublishOnly": "npm run build && npm run version:increment"
+    "format": "prettier --write .",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",
