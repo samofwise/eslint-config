@@ -1,62 +1,63 @@
-module.exports = {
-  extends: [
-    // 1. ESLint core recommended rules
-    "eslint:recommended",
+const tseslint = require("@typescript-eslint/eslint-plugin");
+const tsparser = require("@typescript-eslint/parser");
+const react = require("eslint-plugin-react");
+const reactHooks = require("eslint-plugin-react-hooks");
+const importPlugin = require("eslint-plugin-import");
+const prettier = require("eslint-config-prettier");
+const globals = require("globals");
 
-    // 2. TypeScript ESLint rulesets (industry standard)
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
-
-    // 3. React rules (industry standard)
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-
-    // 5. Import rules (industry standard)
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-
-    // 7. Airbnb preset (optional but popular)
-    "airbnb",
-    "airbnb/hooks",
-
-    // 6. Prettier config (must be last to override formatting rules)
-    "prettier",
-  ],
-
-  parser: "@typescript-eslint/parser",
-
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: true,
-    ecmaFeatures: {
-      jsx: true,
-    },
+module.exports = [
+  // Ignore patterns
+  {
+    ignores: [
+      "**/dist/**",
+      "**/build/**",
+      "**/node_modules/**",
+      "**/*.config.js",
+    ],
   },
-
-  plugins: ["@typescript-eslint", "react", "react-hooks", "import"],
-
-  settings: {
-    // 4. JSX Runtime rules (React 17+)
-    react: {
-      version: "detect",
-    },
-    "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true,
+  // TypeScript ESLint flat configs (these are arrays)
+  ...tseslint.configs["flat/recommended-type-checked"],
+  ...tseslint.configs["flat/stylistic-type-checked"],
+  // React flat config (this is an object with configs, use recommended)
+  react.configs.flat.recommended,
+  // Base configuration with additional settings
+  {
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
       },
-      node: true,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      import: importPlugin,
+    },
+    settings: {
+      // 4. JSX Runtime rules (React 17+)
+      react: {
+        version: "detect",
+      },
+      // 5. Import resolver
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: true,
+      },
+    },
+    rules: {
+      // 3. React Hooks recommended
+      ...reactHooks.configs.recommended.rules,
+
+      // 5. Import recommended
+      ...importPlugin.configs.recommended.rules,
+      ...importPlugin.configs.typescript.rules,
+
+      // 6. Prettier config (must be last to override formatting rules)
+      ...prettier.rules,
     },
   },
-
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-
-  rules: {
-    // Additional custom rules can be added here
-  },
-};
+];

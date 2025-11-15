@@ -11,44 +11,43 @@ This configuration includes:
 ✅ **React Rules** - `eslint-plugin-react` and `eslint-plugin-react-hooks`  
 ✅ **JSX Runtime** - React 17+ support with automatic version detection  
 ✅ **Import Rules** - `eslint-plugin-import` for import correctness & style  
-✅ **Prettier Integration** - `eslint-config-prettier` to disable conflicting formatting rules  
-⭐ **Airbnb Preset** - Popular code style opinions for React/JS
+✅ **Prettier Integration** - `eslint-config-prettier` to disable conflicting formatting rules
 
 ## Installation
 
 ```bash
-npm install --save-dev @samhenrytech/eslint-config
-```
-
-Or with yarn:
-
-```bash
-yarn add -D @samhenrytech/eslint-config
+npm i -D @samhenrytech/eslint-config
 ```
 
 ## Usage
 
-In your `.eslintrc.js` or `.eslintrc.json`:
+ESLint 9 uses the new flat config format. Create an `eslint.config.js` (or `eslint.config.mjs`) file in your project root:
 
-```json
-{
-  "extends": ["@samhenrytech/eslint-config"]
-}
+```javascript
+import config from "@samhenrytech/eslint-config";
+
+export default config;
 ```
 
-Or in your `package.json`:
 
-```json
-{
-  "eslintConfig": {
-    "extends": ["@samhenrytech/eslint-config"]
-  }
-}
+You can also extend the config with your own rules:
+
+```javascript
+import config from "@samhenrytech/eslint-config";
+
+export default [
+  ...config,
+  {
+    rules: {
+      // Your custom rules here
+    },
+  },
+];
 ```
 
 ## Requirements
 
-- ESLint >= 8.0.0
+- ESLint >= 9.0.0
 - TypeScript >= 4.0.0
 
 ## What's Included
@@ -80,11 +79,6 @@ Or in your `package.json`:
 ### 6. Prettier Integration
 
 - `prettier` - Disables ESLint formatting rules (use Prettier for formatting)
-
-### 7. Airbnb Preset
-
-- `airbnb` - Popular React/JS code style
-- `airbnb/hooks` - React Hooks style guide
 
 ## TypeScript Configuration
 
