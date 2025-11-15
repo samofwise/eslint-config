@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "index.js",
+    "tsconfig.base.json",
     "README.md"
   ],
   "keywords": [
@@ -21,7 +22,8 @@
     "url": "https://github.com/samhenrytech/eslint-config.git"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,yaml}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,yaml}\"",
+    "publish": "npm publish --access public"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",

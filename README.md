@@ -29,7 +29,6 @@ import config from "@samhenrytech/eslint-config";
 export default config;
 ```
 
-
 You can also extend the config with your own rules:
 
 ```javascript
@@ -82,16 +81,19 @@ export default [
 
 ## TypeScript Configuration
 
-This config uses type-aware linting, which requires a `tsconfig.json` file in your project. Make sure your `tsconfig.json` includes the files you want to lint:
+This config uses type-aware linting, which requires a `tsconfig.json` file in your project. You can extend the base TypeScript config included in this package:
 
 ```json
 {
+  "extends": "@samhenrytech/eslint-config/tsconfig.base.json",
   "compilerOptions": {
-    // your options
-  },
+    // Your project-specific options
+  }, 
   "include": ["src/**/*"]
 }
 ```
+
+Or create your own `tsconfig.json` with the necessary settings for type-aware linting.
 
 ## License
 
