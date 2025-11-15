@@ -1,6 +1,6 @@
 {
   "name": "@samhenrytech/eslint-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Industry-standard ESLint configuration with TypeScript, React, and Prettier support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
