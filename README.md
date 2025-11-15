@@ -108,8 +108,6 @@ Create a `.prettierrc.ts` file in your project root using ES modules:
 
 ```typescript
 import { prettierConfig } from "@samhenrytech/eslint-config";
-// or import directly from the file
-import baseConfig from "@samhenrytech/eslint-config/.prettierrc.base.ts";
 
 export default {
   ...prettierConfig,
@@ -117,11 +115,7 @@ export default {
 };
 ```
 
-**Note:** Make sure to install these plugins in your project if you use the base config:
-
-```bash
-npm i -D prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports prettier-plugin-packagejson prettier-plugin-organize-attributes prettier-plugin-jsdoc prettier-plugin-sql
-```
+**Note:** All Prettier plugins are included as dependencies in this package, so you don't need to install them separately in your project.
 
 ## License
 
