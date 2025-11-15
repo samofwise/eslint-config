@@ -2,9 +2,10 @@
   "name": "@samhenrytech/eslint-config",
   "version": "1.0.2",
   "description": "Industry-standard ESLint configuration with TypeScript, React, and Prettier support",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js",
+    "dist",
     "tsconfig.base.json",
     "README.md"
   ],
@@ -22,7 +23,9 @@
     "url": "https://github.com/samhenrytech/eslint-config.git"
   },
   "scripts": {
+    "build": "tsc",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,yaml}\"",
+    "prepublishOnly": "npm run build",
     "publish": "npm publish --access public"
   },
   "peerDependencies": {

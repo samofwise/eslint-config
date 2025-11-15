@@ -1,19 +1,18 @@
-const tseslint = require("@typescript-eslint/eslint-plugin");
-const tsparser = require("@typescript-eslint/parser");
-const react = require("eslint-plugin-react");
-const reactHooks = require("eslint-plugin-react-hooks");
-const importPlugin = require("eslint-plugin-import");
-const prettier = require("eslint-config-prettier");
-const globals = require("globals");
+import tseslint from "@typescript-eslint/eslint-plugin";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import importPlugin from "eslint-plugin-import";
+import prettier from "eslint-config-prettier";
+import globals from "globals";
+import type { Config } from "eslint/config";
 
-module.exports = [
+const config: Config[] = [
   // Ignore patterns
   {
     ignores: [
       "**/dist/**",
       "**/build/**",
       "**/node_modules/**",
-      "**/*.config.js",
     ],
   },
   // TypeScript ESLint flat configs (these are arrays)
@@ -58,6 +57,12 @@ module.exports = [
 
       // 6. Prettier config (must be last to override formatting rules)
       ...prettier.rules,
+
+      // Additional rules
+      "react/react-in-jsx-scope": "off",
     },
   },
 ];
+
+export = config;
+
