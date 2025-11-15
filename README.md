@@ -11,7 +11,8 @@ This configuration includes:
 ✅ **React Rules** - `eslint-plugin-react` and `eslint-plugin-react-hooks`  
 ✅ **JSX Runtime** - React 17+ support with automatic version detection  
 ✅ **Import Rules** - `eslint-plugin-import` for import correctness & style  
-✅ **Prettier Integration** - `eslint-config-prettier` to disable conflicting formatting rules
+✅ **Prettier Integration** - `eslint-config-prettier` to disable conflicting formatting rules  
+✅ **Prettier Config** - Base Prettier configuration with industry-standard plugins
 
 ## Installation
 
@@ -21,21 +22,23 @@ npm i -D @samhenrytech/eslint-config
 
 ## Usage
 
+### ESLint Configuration
+
 ESLint 9 uses the new flat config format. Create an `eslint.config.js` (or `eslint.config.mjs`) file in your project root:
 
 ```javascript
-import config from "@samhenrytech/eslint-config";
+import { eslintConfig } from "@samhenrytech/eslint-config";
 
-export default config;
+export default eslintConfig;
 ```
 
 You can also extend the config with your own rules:
 
 ```javascript
-import config from "@samhenrytech/eslint-config";
+import { eslintConfig } from "@samhenrytech/eslint-config";
 
 export default [
-  ...config,
+  ...eslintConfig,
   {
     rules: {
       // Your custom rules here
@@ -94,6 +97,31 @@ This config uses type-aware linting, which requires a `tsconfig.json` file in yo
 ```
 
 Or create your own `tsconfig.json` with the necessary settings for type-aware linting.
+
+## Prettier Configuration
+
+This package includes a base Prettier configuration with industry-standard plugins. You can use it in your project:
+
+### Import in `.prettierrc.ts`
+
+Create a `.prettierrc.ts` file in your project root using ES modules:
+
+```typescript
+import { prettierConfig } from "@samhenrytech/eslint-config";
+// or import directly from the file
+import baseConfig from "@samhenrytech/eslint-config/.prettierrc.base.ts";
+
+export default {
+  ...prettierConfig,
+  // Your project-specific overrides
+};
+```
+
+**Note:** Make sure to install these plugins in your project if you use the base config:
+
+```bash
+npm i -D prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports prettier-plugin-packagejson prettier-plugin-organize-attributes prettier-plugin-jsdoc prettier-plugin-sql
+```
 
 ## License
 
