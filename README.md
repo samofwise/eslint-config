@@ -54,28 +54,35 @@ Or in your `package.json`:
 ## What's Included
 
 ### 1. ESLint Core
+
 - `eslint:recommended` - Industry standard JavaScript linting
 
 ### 2. TypeScript ESLint
+
 - `plugin:@typescript-eslint/recommended` - TypeScript best practices
 - `plugin:@typescript-eslint/recommended-type-checked` - Type-aware linting
 - `plugin:@typescript-eslint/stylistic-type-checked` - Stylistic rules with type checking
 
 ### 3. React Rules
+
 - `plugin:react/recommended` - React best practices
 - `plugin:react-hooks/recommended` - React Hooks linting
 
 ### 4. JSX Runtime
+
 - Automatic React version detection (React 17+)
 
 ### 5. Import Rules
+
 - `plugin:import/recommended` - Import/export validation
 - `plugin:import/typescript` - TypeScript import support
 
 ### 6. Prettier Integration
+
 - `prettier` - Disables ESLint formatting rules (use Prettier for formatting)
 
 ### 7. Airbnb Preset
+
 - `airbnb` - Popular React/JS code style
 - `airbnb/hooks` - React Hooks style guide
 
@@ -95,4 +102,3 @@ This config uses type-aware linting, which requires a `tsconfig.json` file in yo
 ## License
 
 MIT
-
