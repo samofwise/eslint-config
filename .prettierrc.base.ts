@@ -17,12 +17,12 @@ const prettierConfig: Config = {
   quoteProps: "as-needed",
 
   plugins: [
-    "prettier-plugin-tailwindcss",
-    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-packagejson",
+    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-organize-attributes",
     "prettier-plugin-jsdoc",
     "prettier-plugin-sql",
+    "prettier-plugin-tailwindcss", // must be last
   ],
 };
 
