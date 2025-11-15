@@ -1,0 +1,43 @@
+{
+  "name": "@samhenrytech/eslint-config",
+  "version": "1.0.0",
+  "description": "Industry-standard ESLint configuration with TypeScript, React, and Prettier support",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "typescript",
+    "react",
+    "prettier"
+  ],
+  "author": "samhenrytech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samhenrytech/eslint-config.git"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "typescript": ">=4.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  }
+}
+
